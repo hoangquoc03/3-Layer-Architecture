@@ -16,4 +16,12 @@ public class UserRepository {
     public List<User> findAll(){
         return users;
     }
+    public User findById(Long id){
+        for(User user :users){
+            if(user.getId() == id){
+                return user;
+            }
+        }
+        return null;
+    }
 }

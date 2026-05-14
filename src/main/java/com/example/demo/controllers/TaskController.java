@@ -39,4 +39,24 @@ public class TaskController {
 
         return ResponseEntity.ok(tasks);
     }
+    @PostMapping
+    public ResponseEntity<?> createTask(
+            @RequestBody Task newTask) {
+
+        boolean created =
+                taskService.createTask(newTask);
+
+        // User không tồn tại
+        if (!created) {
+
+            return ResponseEntity
+                    .badRequest()
+                    .body("Assigned user does not exist");
+        }
+
+        // Thành công
+        return ResponseEntity
+                .status(201)
+                .body(newTask);
+    }
 }

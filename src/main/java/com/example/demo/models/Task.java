@@ -15,6 +15,9 @@ public class Task {
         this.assignedTo = assignedTo;
     }
 
+    public Task() {
+    }
+
     public int getId() {
         return id;
     }
